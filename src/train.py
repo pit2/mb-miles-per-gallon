@@ -1,11 +1,11 @@
 import numpy as np
 import pandas as pd
 from sklearn import model_selection
-from sklearn.linear_model import LinearRegression, Lasso
+from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error
-# import pickle
+import pickle
 
 df = pd.read_csv("../data/auto-mpg.csv", sep=";")
 
@@ -35,3 +35,5 @@ coefficients = pipe.named_steps["linear_model"].coef_
 print(f"Model coefficients: {coefficients}")
 intercept = pipe.named_steps["linear_model"].intercept_
 print(f"Intercept: {intercept}")
+
+pickle.dump(pipe, open("../data/models/final_model", "wb"))
