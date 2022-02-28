@@ -52,4 +52,4 @@ print(
 print(
     f"RMSE on test set: {np.sqrt(mean_squared_error(y_test, y_predict_test))}")
 
-pickle.dump(pipe, open("../data/models/final_model", "wb"))
+pickle.dump(pipe, open("../data/models/final_model.pickle", "wb"))

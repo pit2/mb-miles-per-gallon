@@ -7,7 +7,7 @@ predicted by the loaded model.
 import pandas as pd
 import pickle
 
-pipe = pickle.load(open("../data/models/final_model", "rb"))
+pipe = pickle.load(open("../data/models/final_model.pickle", "rb"))
 
 print("Enter values for features to make a prediction.")
 weight = int(input("Weight: "))
