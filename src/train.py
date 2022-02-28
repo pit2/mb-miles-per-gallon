@@ -1,3 +1,10 @@
+"""Train script for data preparation and polynomial regression
+
+First, this script prepares the data by dropping the zylinder and ps feature columns as they have
+been found to have little predictive value. The remaining features are then Min-Max-normalized
+to have range [0,1]. A quadratic polynomial model is then trained with ridge regression and saved.
+"""
+
 import numpy as np
 import pandas as pd
 from sklearn import model_selection
@@ -13,6 +20,12 @@ df = pd.read_csv("../data/auto-mpg.csv", sep=";")
 
 
 def drop(columns, in_df):
+    """Return modified dataframe, i.e. one where the specified columns have been dropped.
+
+    Keyword arguments:
+    columns -- a list of strings specifying the columns to be dropped
+    in_df -- a pandas dataframe from which the columns are dropped
+    """
     for col in columns:
         in_df = in_df.drop(col, axis=1)
     return in_df

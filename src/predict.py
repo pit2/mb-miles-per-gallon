@@ -1,3 +1,9 @@
+"""Predict script
+
+Prompt the user for input and print a prediction in the terminal for the miles-per-gallon as
+predicted by the loaded model.
+"""
+
 import pandas as pd
 import pickle
 
