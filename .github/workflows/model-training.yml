@@ -1,0 +1,26 @@
+name: model-training
+on: [pull_request]
+jobs:
+  - name: Checkout
+  uses: actions/checkout@v3.0.0
+  Python-Stuff
+    steps:
+      - name: Setup Python
+      uses: actions/setup-python@v3.0.0
+        with:
+          python-version: '3.10.2'
+      - name: Python Dependency Installation
+      uses: py-actions/py-dependency-install@v3.0.0
+      - run: src/train.py
+  - name: Upload a Build Artifact
+  uses: actions/upload-artifact@v3.0.0
+  steps:
+    - run: mkdir -p data/models/
+    - run: echo hello > data/models/final_model.pickle
+    - uses: actions/upload-artifact@v3
+      with:
+        name: Upload model
+        path: data/models/final_model.pickle
+
+
+
