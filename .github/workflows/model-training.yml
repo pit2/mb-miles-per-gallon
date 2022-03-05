@@ -2,9 +2,11 @@ name: model-training
 on: [pull_request]
 jobs:
   checkout:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
   python_stuff:
+    runs-on: ubuntu-latest
     steps:
       - name: Setup Python
         uses: actions/setup-python@v3
@@ -13,6 +15,7 @@ jobs:
       - name: Python Dependency Installation
         uses: py-actions/py-dependency-install@v3
   update_model:
+    runs-on: ubuntu-latest
     steps:
       - run: python src/train.py
       - run: mkdir -p data/models/
