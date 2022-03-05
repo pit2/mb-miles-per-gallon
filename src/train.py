@@ -16,7 +16,7 @@ import pickle
 
 DROP_COLS = ("zylinder", "ps")
 
-df = pd.read_csv("../data/auto-mpg.csv", sep=";")
+df = pd.read_csv("data/auto-mpg.csv", sep=";")
 
 
 def drop(columns, in_df):
@@ -52,4 +52,4 @@ print(
 print(
     f"RMSE on test set: {np.sqrt(mean_squared_error(y_test, y_predict_test))}")
 
-pickle.dump(pipe, open("../data/models/final_model.pickle", "wb"))
+pickle.dump(pipe, open("data/models/final_model.pickle", "wb"))

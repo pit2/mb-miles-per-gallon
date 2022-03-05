@@ -1,0 +1,23 @@
+name: model-training
+on: [pull_request]
+jobs:
+  update-model:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.10.2'
+      - name: Python Dependency Installation
+        uses: py-actions/py-dependency-install@v3
+      - run: python src/train.py
+      - run: mkdir -p data/models/
+      - run: echo hello > data/models/final_model.pickle
+      - uses: actions/upload-artifact@v3
+        with:
+          name: Upload model
+          path: data/models/final_model.pickle
+
+
+
