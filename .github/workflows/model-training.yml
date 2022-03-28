@@ -13,7 +13,6 @@ jobs:
         uses: py-actions/py-dependency-install@v3
       - run: python src/train.py
       - run: mkdir -p data/models/
-      - run: echo hello > data/models/final_model.pickle
       - uses: actions/upload-artifact@v3
         with:
           name: Upload model
