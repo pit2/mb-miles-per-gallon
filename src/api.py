@@ -25,8 +25,10 @@ def get_training_data():
 
 @app.route("/predict", methods=["GET"])
 def predict_mpg():
-    weight = request.args.get("weight")
-    acc = request.args.get("acceleration")
-    year = request.args.get("year")
+    _ = request.args.get("ps")
+    _ = request.args.get("zylinder")
+    weight = request.args.get("gewicht")
+    acc = request.args.get("beschleunigung")
+    year = request.args.get("baujahr")
 
     return {"result": make_prediction(weight, acc, year)}
