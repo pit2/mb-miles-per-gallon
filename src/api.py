@@ -2,8 +2,10 @@ from flask import Flask, Response, request
 import pandas as pd
 import os
 from src.predict import make_prediction
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app)
 
 training_data = pd.read_csv(os.path.join("data", "auto-mpg.csv"))
 
